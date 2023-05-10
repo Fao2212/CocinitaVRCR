@@ -4,28 +4,60 @@ using UnityEngine;
 
 public class Hamburguesa : Receta
 {
-    public override void ValidarReceta(Ingredient ingrediente)
+    protected override void ValidarReceta()
     {
-        throw new System.NotImplementedException();
-        //Se necesita un pan de primero en la lista
-        //Se van a gregando interiente pero cuando se agrega un pan se tacha el primero y busca una torta
-       
-        //If primero es pan pasa a seguunda condicion.
-        //If no es torta and not pan pasa a tercera.
-        //If pan termina receta.
-
-        //expresiones regulares es muy buena opcion. Se conecta la cadena de string con nombres de ingredientes y se aplica expresionees regulares.
+        if(!terminada)
+        {
+            Ingredient ingrediente = ingredientesActuales[ingredientesActuales.Count];
+            Ingredient siguienteIngredienteValido = ingredientesReceta[fase];
+            switch (fase)
+            {
+                case 0:
+                    if (ingrediente == siguienteIngredienteValido)
+                    {
+                        fase++;
+                        Debug.Log("Se agrega el primer pan");
+                    }
+                    else
+                    {
+                        //No es el primer pan
+                        Debug.Log("No es el primer pan");
+                    }
+                    break;
+                case 1:
+                    //Si no es el ultimo pan. Puede ser cualquier pan. Puede trabajarse el codigo con tags en vez de con referencias.
+                    if (ingrediente != ingredientesReceta[2])
+                    {
+                        //Si es la torta
+                        if (ingrediente == ingredientesReceta[1])
+                        {
+                            fase++;
+                            Debug.Log("Se agrega la torta");
+                        }
+                    }
+                    else
+                    {
+                        //Se ponen 2 panes seguidos
+                        Debug.Log("Se ponen 2 panes seguidos");
+                    }
+                    break;
+                case 2:
+                    if(ingrediente == siguienteIngredienteValido)
+                    {
+                        //Se termina la receta con el ultimo pan
+                        fase++;
+                        terminada = true;
+                    }
+                    else
+                    {
+                        Debug.Log("Termino la receta con el pan");
+                    }
+                    break;
+                default:
+                    Debug.Log("Ya la receta termino");
+                    break;
+            }
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

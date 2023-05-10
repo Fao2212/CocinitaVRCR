@@ -14,28 +14,26 @@ public abstract class Receta : MonoBehaviour
     //Ve si los ingredientes tienen que ir en un orden especifico o se peuden agregar a lo loco
     [SerializeField]
     protected bool isInOrden;
+    protected int fase;
 
     private void Start()
     {
         ingredientesActuales = new();
+        fase = 0;
     }
 
     public void AgregarIngrediente(Ingredient ingredient)
     {
         ingredientesActuales.Add(ingredient);
-    }
-
-    public void ValidarIngrediente(Ingredient ingredient)
-    {
-
+        ValidarReceta();
     }
 
     public void RemoverIngrediente(Ingredient ingrediente)
     {
-
+        ingredientesActuales.Remove(ingrediente);
     }
 
-    public abstract void ValidarReceta(Ingredient ingrediente);
+    protected abstract void ValidarReceta();
 
 
 }
