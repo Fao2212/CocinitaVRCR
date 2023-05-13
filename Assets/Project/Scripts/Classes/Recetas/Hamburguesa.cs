@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Este script son los pasos o reglas a seguir para crear una hamburguesa, esta funcion es llamada por el manager de la receta cada vez que se agrega un ingrediente y poder validar un paso.
+/// </summary>
 public class Hamburguesa : Receta
 {
-    protected override void ValidarReceta()
+    public override void ValidarPaso()
     {
-        if(!terminada)
+        if(!RecipeManager.Instace.Terminada)
         {
-            Ingredient ingrediente = ingredientesActuales[ingredientesActuales.Count];
-            Ingredient siguienteIngredienteValido = ingredientesReceta[fase];
-            switch (fase)
+            List<GameObject> ingredientesReceta = RecipeManager.Instace.RecetaDeEscena.ingredientesReceta;
+            List<Ingredient> ingredientesActuales = RecipeManager.Instace.IngredientesActuales;
+            Ingredient ingrediente = ingredientesActuales[ingredientesActuales.Count-1];
+            GameObject siguienteIngredienteValido = ingredientesReceta[RecipeManager.Instace.Fase];
+            switch (RecipeManager.Instace.Fase)
             {
                 case 0:
-                    if (ingrediente == siguienteIngredienteValido)
+                    if (ingrediente.originPrefab.name == siguienteIngredienteValido.name)
                     {
-                        fase++;
+                        RecipeManager.Instace.Fase++;
                         Debug.Log("Se agrega el primer pan");
                     }
                     else
@@ -26,12 +31,12 @@ public class Hamburguesa : Receta
                     break;
                 case 1:
                     //Si no es el ultimo pan. Puede ser cualquier pan. Puede trabajarse el codigo con tags en vez de con referencias.
-                    if (ingrediente != ingredientesReceta[2])
+                    if (ingrediente.originPrefab != ingredientesReceta[2])
                     {
                         //Si es la torta
-                        if (ingrediente == ingredientesReceta[1])
+                        if (ingrediente.name == ingredientesReceta[1].name)
                         {
-                            fase++;
+                            RecipeManager.Instace.Fase++;
                             Debug.Log("Se agrega la torta");
                         }
                     }
@@ -42,11 +47,11 @@ public class Hamburguesa : Receta
                     }
                     break;
                 case 2:
-                    if(ingrediente == siguienteIngredienteValido)
+                    if(ingrediente.originPrefab.name == siguienteIngredienteValido.name)
                     {
                         //Se termina la receta con el ultimo pan
-                        fase++;
-                        terminada = true;
+                        RecipeManager.Instace.Fase++;
+                        RecipeManager.Instace.Terminada = true;
                     }
                     else
                     {
