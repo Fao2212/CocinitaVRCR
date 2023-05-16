@@ -22,7 +22,7 @@ public class Ingredient : MonoBehaviour
     public float tiempoDeQuemado;
     private Renderer renderer;
     public bool opcional;
-    private int numeroDeEntrada;
+    public GameObject originPrefab;
 
     public void CambiarEstadoACCortar()
     {
