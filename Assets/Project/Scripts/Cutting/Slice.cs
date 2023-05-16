@@ -2,15 +2,19 @@ using EzySlice;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Slice : MonoBehaviour
 {
 
     public LayerMask layerMask;
-    public float cutCooldown = 1;
+    public float cutCooldown = .5f;
     public bool inCooldown;
     //Size of the edge
     public Material tempMaterial;
+    public bool canCut;
+    public bool m_Started;
+    public XRInteractionManager interactionManager;
 
     public IEnumerator Cooldown()
     {
@@ -21,10 +25,11 @@ public class Slice : MonoBehaviour
 
     public void SliceIngredient()
     {
-        if(!inCooldown)
+        if(!inCooldown && canCut)
         {
-            StartCoroutine(Cooldown());
-            Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, gameObject.transform.rotation, layerMask);
+           StartCoroutine(Cooldown());
+            Vector3 cutterPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y-0.5f, gameObject.transform.position.z);
+            Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale, gameObject.transform.rotation, layerMask);
             if (hits.Length <= 0)
                 return;
 
@@ -52,10 +57,13 @@ public class Slice : MonoBehaviour
     {
         //Asign cuttable layer again
         //hullObject.layer = 9;
-        Rigidbody rb = hullObject.AddComponent<Rigidbody>();
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        //Rigidbody rb = hullObject.AddComponent<Rigidbody>();
+        //rb.interpolation = RigidbodyInterpolation.Interpolate;
         MeshCollider collider = hullObject.AddComponent<MeshCollider>();
         collider.convex = true;
+        XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
+        grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
+        //interactionManager.RegisterInteractable((IXRInteractable)grabInteractable);
         //rb.AddExplosionForce(100, hullObject.transform.position, 10);
     }
 
@@ -64,8 +72,30 @@ public class Slice : MonoBehaviour
         return objectToCut.Slice(gameObject.transform.position, gameObject.transform.up, crossSectionMaterial);
     }
 
+    private void Start()
+    {
+        m_Started = true;
+    }
+
     private void Update()
     {
         SliceIngredient();
     }
+
+    public void CutOn()
+    {
+        canCut = true;
+    }
+
+    public void CutOff()
+    {
+        canCut = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(gameObject.transform.position, transform.localScale);
+    }
+
 }

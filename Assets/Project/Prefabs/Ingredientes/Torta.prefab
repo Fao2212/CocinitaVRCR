@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6200042353568646439}
   - component: {fileID: 1775769995981181521}
   - component: {fileID: 1775769995981181526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Torta
   m_TagString: Untagged
   m_Icon: {fileID: 0}

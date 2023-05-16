@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5669527035020693543}
   - component: {fileID: 1064732497}
   - component: {fileID: 1064732502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Lechuuga
   m_TagString: Untagged
   m_Icon: {fileID: 0}
