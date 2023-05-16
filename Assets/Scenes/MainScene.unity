@@ -1637,6 +1637,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pan
       objectReference: {fileID: 0}
+    - target: {fileID: 6540478487481193597, guid: 7fecdddd09cc77345a02c618e026dd1b,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fecdddd09cc77345a02c618e026dd1b, type: 3}
 --- !u!1 &832575517
