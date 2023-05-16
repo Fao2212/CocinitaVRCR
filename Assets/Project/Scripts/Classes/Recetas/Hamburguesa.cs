@@ -31,7 +31,7 @@ public class Hamburguesa : Receta
                     break;
                 case 1:
                     //Si no es el ultimo pan. Puede ser cualquier pan. Puede trabajarse el codigo con tags en vez de con referencias.
-                    if (ingrediente.originPrefab != ingredientesReceta[2])
+                    if (ingrediente.originPrefab.name != ingredientesReceta[2].name)
                     {
                         //Si es la torta
                         if (ingrediente.name == ingredientesReceta[1].name)
@@ -52,10 +52,11 @@ public class Hamburguesa : Receta
                         //Se termina la receta con el ultimo pan
                         RecipeManager.Instace.Fase++;
                         RecipeManager.Instace.Terminada = true;
+                        Debug.Log("Termino la receta con el pan");
                     }
                     else
                     {
-                        Debug.Log("Termino la receta con el pan");
+                        Debug.Log("Aun no pone el pan");
                     }
                     break;
                 default:
