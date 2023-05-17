@@ -13,7 +13,6 @@ public class Slice : MonoBehaviour
     //Size of the edge
     public Material tempMaterial;
     public bool canCut;
-    public bool m_Started;
     public XRInteractionManager interactionManager;
 
     public IEnumerator Cooldown()
@@ -55,26 +54,15 @@ public class Slice : MonoBehaviour
 
     public void AddHullComponents(GameObject hullObject)
     {
-        //Asign cuttable layer again
-        //hullObject.layer = 9;
-        //Rigidbody rb = hullObject.AddComponent<Rigidbody>();
-        //rb.interpolation = RigidbodyInterpolation.Interpolate;
         MeshCollider collider = hullObject.AddComponent<MeshCollider>();
         collider.convex = true;
         XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
         grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
-        //interactionManager.RegisterInteractable((IXRInteractable)grabInteractable);
-        //rb.AddExplosionForce(100, hullObject.transform.position, 10);
     }
 
     public SlicedHull cutObject(GameObject objectToCut, Material crossSectionMaterial = null)
     {
         return objectToCut.Slice(gameObject.transform.position, gameObject.transform.up, crossSectionMaterial);
-    }
-
-    private void Start()
-    {
-        m_Started = true;
     }
 
     private void Update()
@@ -90,12 +78,6 @@ public class Slice : MonoBehaviour
     public void CutOff()
     {
         canCut = false;
-    }
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(gameObject.transform.position, transform.localScale);
     }
 
 }
