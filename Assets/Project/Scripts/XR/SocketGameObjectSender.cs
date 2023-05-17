@@ -14,7 +14,7 @@ public class SocketGameObjectSender : MonoBehaviour
             Ingredient ingrediente;
             if(interactor.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
             {
-                RecipeManager.Instace.AgregarIngrediente(ingrediente);
+                RecipeManager.Instance.AgregarIngrediente(ingrediente);
                 SocketManager.Instance.CreateSocketAndRemoveGrabbable(ingrediente);
             }
             else

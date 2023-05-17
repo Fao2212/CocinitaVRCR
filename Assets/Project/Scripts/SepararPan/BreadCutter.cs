@@ -12,17 +12,27 @@ public class BreadCutter : MonoBehaviour
     public int hands;
     public GameObject LeftHand;
     public GameObject RightHand;
+    public MeshRenderer planeRenderer;
+
+    private void Start()
+    {
+        planeRenderer = plane.GetComponent<MeshRenderer>();
+    }
 
     private void Update()
     {
         if(hands == 1)
         {
-            plane.SetActive(true);
+            if(!planeRenderer.enabled)
+            {
+                planeRenderer.enabled = true;
+            }
+            Vector3 direction = RightHand.transform.position - LeftHand.transform.position;
+            plane.transform.LookAt(direction.normalized);
         }
         else
         {
-            if(plane.activeInHierarchy)
-                plane.SetActive(false);
+            planeRenderer.enabled = false;
         }
     }
 
@@ -31,8 +41,6 @@ public class BreadCutter : MonoBehaviour
         AddHand();
         if(hands == 2 && !cutted) 
         {
-            Vector3 direction = RightHand.transform.position - LeftHand.transform.position;
-            plane.transform.LookAt(direction.normalized);
             cutted = true;
             SlicedHull hull = gameObject.Slice(plane.transform.position,plane.transform.up);
             GameObject upperObject = hull.CreateUpperHull(gameObject, null);
@@ -46,6 +54,7 @@ public class BreadCutter : MonoBehaviour
     public void AddHand()
     {
         hands += 1;
+        print("Number Of Hands:"+hands);
     }
 
     public void RemoveHand()
@@ -59,6 +68,7 @@ public class BreadCutter : MonoBehaviour
         collider.convex = true;
         XRGrabInteractable interactable = hullObject.AddComponent<XRGrabInteractable>();
         interactable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
+        hullObject.AddComponent<Ingredient>();
     }
 
 

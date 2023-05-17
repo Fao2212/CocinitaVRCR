@@ -9,18 +9,18 @@ public class Hamburguesa : Receta
 {
     public override void ValidarPaso()
     {
-        if(!RecipeManager.Instace.Terminada)
+        if(!RecipeManager.Instance.Terminada)
         {
-            List<GameObject> ingredientesReceta = RecipeManager.Instace.RecetaDeEscena.ingredientesReceta;
-            List<Ingredient> ingredientesActuales = RecipeManager.Instace.IngredientesActuales;
+            List<GameObject> ingredientesReceta = RecipeManager.Instance.RecetaDeEscena.ingredientesReceta;
+            List<Ingredient> ingredientesActuales = RecipeManager.Instance.IngredientesActuales;
             Ingredient ingrediente = ingredientesActuales[ingredientesActuales.Count-1];
-            GameObject siguienteIngredienteValido = ingredientesReceta[RecipeManager.Instace.Fase];
-            switch (RecipeManager.Instace.Fase)
+            GameObject siguienteIngredienteValido = ingredientesReceta[RecipeManager.Instance.Fase];
+            switch (RecipeManager.Instance.Fase)
             {
                 case 0:
                     if (ingrediente.originPrefab.name == siguienteIngredienteValido.name)
                     {
-                        RecipeManager.Instace.Fase++;
+                        RecipeManager.Instance.Fase++;
                         Debug.Log("Se agrega el primer pan");
                     }
                     else
@@ -36,7 +36,7 @@ public class Hamburguesa : Receta
                         //Si es la torta
                         if (ingrediente.name == ingredientesReceta[1].name)
                         {
-                            RecipeManager.Instace.Fase++;
+                            RecipeManager.Instance.Fase++;
                             Debug.Log("Se agrega la torta");
                         }
                     }
@@ -50,8 +50,8 @@ public class Hamburguesa : Receta
                     if(ingrediente.originPrefab.name == siguienteIngredienteValido.name)
                     {
                         //Se termina la receta con el ultimo pan
-                        RecipeManager.Instace.Fase++;
-                        RecipeManager.Instace.Terminada = true;
+                        RecipeManager.Instance.Fase++;
+                        RecipeManager.Instance.Terminada = true;
                         Debug.Log("Termino la receta con el pan");
                     }
                     else

@@ -10,7 +10,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Receta))]
 public class RecipeManager : MonoBehaviour
 {
-    public static RecipeManager Instace { get; private set;}
+    public static RecipeManager Instance { get; private set;}
     [field:SerializeField]
     public Receta RecetaDeEscena { get; set; }
     public List<Ingredient> IngredientesActuales { get; set; }
@@ -36,10 +36,10 @@ public class RecipeManager : MonoBehaviour
 
     private void Awake()
     {
-        if (!Instace)
+        if (!Instance)
         {
-            Instace = this;
-            Instace.RecetaDeEscena = GetComponent<Receta>();
+            Instance = this;
+            Instance.RecetaDeEscena = GetComponent<Receta>();
             IngredientesActuales = new();
         }
         else
