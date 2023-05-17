@@ -10,12 +10,29 @@ public class BreadCutter : MonoBehaviour
     public GameObject plane;
     public bool cutted;
     public int hands;
+    public GameObject LeftHand;
+    public GameObject RightHand;
+
+    private void Update()
+    {
+        if(hands == 1)
+        {
+            plane.SetActive(true);
+        }
+        else
+        {
+            if(plane.activeInHierarchy)
+                plane.SetActive(false);
+        }
+    }
 
     public void GrabTheBreada()
     {
         AddHand();
         if(hands == 2 && !cutted) 
         {
+            Vector3 direction = RightHand.transform.position - LeftHand.transform.position;
+            plane.transform.LookAt(direction.normalized);
             cutted = true;
             SlicedHull hull = gameObject.Slice(plane.transform.position,plane.transform.up);
             GameObject upperObject = hull.CreateUpperHull(gameObject, null);
@@ -38,11 +55,10 @@ public class BreadCutter : MonoBehaviour
 
     public void AddHullComponents(GameObject hullObject)
     {
-        Rigidbody rb = hullObject.AddComponent<Rigidbody>();
         MeshCollider collider = hullObject.AddComponent<MeshCollider>();
         collider.convex = true;
         XRGrabInteractable interactable = hullObject.AddComponent<XRGrabInteractable>();
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        interactable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
     }
 
 
