@@ -119,8 +119,7 @@ MonoBehaviour:
   tiempoDeCoccionActual: 0
   tiempoDeQuemado: 8
   opcional: 0
-  originPrefab: {fileID: 1471065490237539123, guid: ce99663046d8db648acd4dd1d4e247ac,
-    type: 3}
+  originPrefab: {fileID: 1471065490237539123}
 --- !u!54 &6540478487481193594
 Rigidbody:
   m_ObjectHideFlags: 0

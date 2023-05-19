@@ -11,6 +11,7 @@ public enum Estados
     CRUDO
 }
 
+[System.Serializable]
 public class Ingredient : MonoBehaviour
 {
 

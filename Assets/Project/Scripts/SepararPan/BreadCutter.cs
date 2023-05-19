@@ -13,10 +13,13 @@ public class BreadCutter : MonoBehaviour
     public GameObject LeftHand;
     public GameObject RightHand;
     public MeshRenderer planeRenderer;
+    private Ingredient originalIngredient;
 
     private void Start()
     {
         planeRenderer = plane.GetComponent<MeshRenderer>();
+        originalIngredient = GetComponent<Ingredient>().originPrefab.GetComponent<Ingredient>();
+        originalIngredient = originalIngredient.originPrefab.GetComponent<Ingredient>();
     }
 
     private void Update()
@@ -43,8 +46,8 @@ public class BreadCutter : MonoBehaviour
         {
             cutted = true;
             SlicedHull hull = gameObject.Slice(plane.transform.position,plane.transform.up);
-            GameObject upperObject = hull.CreateUpperHull(gameObject, null);
-            GameObject lowerObject = hull.CreateLowerHull(gameObject, null);
+            GameObject upperObject = hull.CreateUpperHull(gameObject, gameObject.GetComponent<Renderer>().material);
+            GameObject lowerObject = hull.CreateLowerHull(gameObject, gameObject.GetComponent<Renderer>().material);
             AddHullComponents(upperObject);
             AddHullComponents(lowerObject);
             Destroy(gameObject);
@@ -68,7 +71,12 @@ public class BreadCutter : MonoBehaviour
         collider.convex = true;
         XRGrabInteractable interactable = hullObject.AddComponent<XRGrabInteractable>();
         interactable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
-        hullObject.AddComponent<Ingredient>();
+        Ingredient ingredient = hullObject.AddComponent<Ingredient>();
+        ingredient.tiempoDeCoccion = originalIngredient.tiempoDeCoccion;
+        ingredient.tiempoDeCoccionActual = originalIngredient.tiempoDeCoccionActual;
+        ingredient.tiempoDeQuemado = originalIngredient.tiempoDeQuemado;
+        ingredient.opcional = originalIngredient.opcional;
+        ingredient.originPrefab = originalIngredient.originPrefab;
     }
 
 

@@ -39,10 +39,12 @@ public class Slice : MonoBehaviour
 
                 if (hull != null)
                 {
+                    Ingredient originalIngredient = originalObject.GetComponent<Ingredient>();
+                    Ingredient prefabIngredeient = originalIngredient.originPrefab.GetComponent<Ingredient>();
                     GameObject upperObject = hull.CreateUpperHull(originalObject, tempMaterial);
                     GameObject lowerObject = hull.CreateLowerHull(originalObject, tempMaterial);
-                    AddHullComponents(upperObject);
-                    AddHullComponents(lowerObject);
+                    AddHullComponents(upperObject, prefabIngredeient);
+                    AddHullComponents(lowerObject, prefabIngredeient);
                     upperObject.layer = 6;
                     lowerObject.layer = 6;
                     Destroy(originalObject);
@@ -52,12 +54,18 @@ public class Slice : MonoBehaviour
 
     }
 
-    public void AddHullComponents(GameObject hullObject)
+    public void AddHullComponents(GameObject hullObject,Ingredient prefabIngredeient)
     {
         MeshCollider collider = hullObject.AddComponent<MeshCollider>();
         collider.convex = true;
         XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
         grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
+        Ingredient ingredient = hullObject.AddComponent<Ingredient>();
+        ingredient.tiempoDeCoccion = prefabIngredeient.tiempoDeCoccion;
+        ingredient.tiempoDeCoccionActual = prefabIngredeient.tiempoDeCoccionActual;
+        ingredient.tiempoDeQuemado = prefabIngredeient.tiempoDeQuemado;
+        ingredient.opcional = prefabIngredeient.opcional;
+        ingredient.originPrefab = prefabIngredeient.originPrefab;
     }
 
     public SlicedHull cutObject(GameObject objectToCut, Material crossSectionMaterial = null)
