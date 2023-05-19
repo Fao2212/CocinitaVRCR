@@ -1367,7 +1367,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 2147483663
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}
@@ -2757,6 +2757,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176518810785986831, guid: 7193efe083423d14cbc2b7c632da3b11,
         type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4176518810785986831, guid: 7193efe083423d14cbc2b7c632da3b11,
+        type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 641720922}
@@ -3627,7 +3632,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 2147483663
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_StartingSelectedInteractable: {fileID: 0}

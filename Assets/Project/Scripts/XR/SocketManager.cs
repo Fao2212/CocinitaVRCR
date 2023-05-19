@@ -46,5 +46,8 @@ public class SocketManager : MonoBehaviour
         GameObject newSocketObjeect = Instantiate(socketPrefab, new Vector3(lastSocketPosition.x, lastSocketPosition.y + ingredient.transform.lossyScale.y, lastSocketPosition.z), Quaternion.identity, transform);
         XRSocketInteractor socket = newSocketObjeect.GetComponent<XRSocketInteractor>();
         socketList.Add(socket);
+
+        //Remove hand interaction with ingredient
+        ingredient.gameObject.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("LockedIngredient");
     }
 }
