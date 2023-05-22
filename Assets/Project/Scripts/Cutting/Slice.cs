@@ -14,6 +14,7 @@ public class Slice : MonoBehaviour
     public Material tempMaterial;
     public bool canCut;
     public XRInteractionManager interactionManager;
+    public float ingredientMinSize;
 
     public IEnumerator Cooldown()
     {
@@ -56,16 +57,25 @@ public class Slice : MonoBehaviour
 
     public void AddHullComponents(GameObject hullObject,Ingredient prefabIngredeient)
     {
-        MeshCollider collider = hullObject.AddComponent<MeshCollider>();
-        collider.convex = true;
-        XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
-        grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
-        Ingredient ingredient = hullObject.AddComponent<Ingredient>();
-        ingredient.tiempoDeCoccion = prefabIngredeient.tiempoDeCoccion;
-        ingredient.tiempoDeCoccionActual = prefabIngredeient.tiempoDeCoccionActual;
-        ingredient.tiempoDeQuemado = prefabIngredeient.tiempoDeQuemado;
-        ingredient.opcional = prefabIngredeient.opcional;
-        ingredient.originPrefab = prefabIngredeient.originPrefab;
+            MeshCollider collider = hullObject.AddComponent<MeshCollider>();
+            collider.convex = true;
+        if (collider.bounds.size.magnitude > ingredientMinSize)
+        {
+            XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
+            grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
+            Ingredient ingredient = hullObject.AddComponent<Ingredient>();
+            ingredient.tiempoDeCoccion = prefabIngredeient.tiempoDeCoccion;
+            ingredient.tiempoDeCoccionActual = prefabIngredeient.tiempoDeCoccionActual;
+            ingredient.tiempoDeQuemado = prefabIngredeient.tiempoDeQuemado;
+            ingredient.opcional = prefabIngredeient.opcional;
+            ingredient.originPrefab = prefabIngredeient.originPrefab;
+        }
+        else
+        {
+            print("Destroying small object");
+            Destroy(hullObject, 1.5f);
+        }
+
     }
 
     public SlicedHull cutObject(GameObject objectToCut, Material crossSectionMaterial = null)

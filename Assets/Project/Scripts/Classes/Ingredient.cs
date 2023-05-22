@@ -65,11 +65,11 @@ public class Ingredient : MonoBehaviour
     {
         materialesSegunEstado = new();
         int contador = 0;
-        foreach (Estados estado in Enum.GetValues(typeof(Estados)))
-        {
-            materialesSegunEstado[estado] = materiales[contador];
-            contador++;
-        }
+        //foreach (Estados estado in Enum.GetValues(typeof(Estados)))
+        //{
+        //    materialesSegunEstado[estado] = materiales[contador];
+        //    contador++;
+        //}
         renderer = GetComponent<Renderer>();
     }
 
