@@ -20,6 +20,7 @@ public class RecipeManager : MonoBehaviour
 
     public UnityEvent ingredientAddedEvent;
     public UnityEvent ingredientRemovedEvent;
+    public ScreenState screenState;
 
     public void AgregarIngrediente(Ingredient ingredient)
     {
@@ -33,6 +34,20 @@ public class RecipeManager : MonoBehaviour
         IngredientesActuales.Remove(ingrediente);
         ingredientRemovedEvent.Invoke();
     }
+
+    public void ResetReceta()
+    {
+        foreach(Ingredient ingrediente in IngredientesActuales)
+        {
+            Destroy(ingrediente.gameObject);
+        }
+        IngredientesActuales = new();
+        SocketManager.Instance.ResetSockets();
+        screenState.SetGreenScreen();
+        Fase = 0;
+        Terminada = false;
+    }
+
 
     private void Awake()
     {

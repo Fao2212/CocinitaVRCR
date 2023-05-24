@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class Hamburguesa : Receta
 {
+    public ScreenState screenState;
     public override void ValidarPaso()
     {
         if(!RecipeManager.Instance.Terminada)
@@ -27,6 +28,7 @@ public class Hamburguesa : Receta
                     {
                         //No es el primer pan
                         Debug.Log("No es el primer pan");
+                        screenState.SetRedScreen();
                     }
                     break;
                 case 1:
@@ -44,6 +46,7 @@ public class Hamburguesa : Receta
                     {
                         //Se ponen 2 panes seguidos
                         Debug.Log("Se ponen 2 panes seguidos");
+                        screenState.SetRedScreen();
                     }
                     break;
                 case 2:
@@ -65,5 +68,4 @@ public class Hamburguesa : Receta
             }
         }
     }
-
 }

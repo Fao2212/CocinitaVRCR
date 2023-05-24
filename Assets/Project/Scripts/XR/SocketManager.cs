@@ -8,8 +8,21 @@ public class SocketManager : MonoBehaviour
 {
     public GameObject socketPrefab;
     public List<XRSocketInteractor> socketList;
+    public XRSocketInteractor firstSocket;
     public static SocketManager Instance { get; private set; }
 
+    public void ResetSockets()
+    {
+        foreach(XRSocketInteractor socket in socketList)
+        {
+            if(socket.gameObject != firstSocket.gameObject)
+            {
+                Destroy(socket.gameObject);
+            }
+        }
+        socketList = new();
+        socketList.Add(firstSocket);
+    }    
 
     private void Awake()
     {   
