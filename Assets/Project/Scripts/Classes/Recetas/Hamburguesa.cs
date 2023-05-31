@@ -55,6 +55,7 @@ public class Hamburguesa : Receta
                         //Se termina la receta con el ultimo pan
                         RecipeManager.Instance.Fase++;
                         RecipeManager.Instance.Terminada = true;
+                        RecipeManager.Instance.DONE.SetActive(true);
                         Debug.Log("Termino la receta con el pan");
                     }
                     else

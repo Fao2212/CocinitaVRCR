@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Estados
 {
@@ -24,6 +25,9 @@ public class Ingredient : MonoBehaviour
     private Renderer renderer;
     public bool opcional;
     public GameObject originPrefab;
+    private float timeToDissapear = 2;
+    private float aumentoDeTiempo = 0.01f;
+    private float tiempoDeBorrarActual = 0;
 
     public void CambiarEstadoACCortar()
     {
@@ -71,6 +75,23 @@ public class Ingredient : MonoBehaviour
         //    contador++;
         //}
         renderer = GetComponent<Renderer>();
+    }
+
+    public void RemoveIngredient()
+    {
+        StartCoroutine(RemoveIngredientTask());
+    }
+
+    private IEnumerator RemoveIngredientTask()
+    {
+        Destroy(GetComponent<XRGrabInteractable>());
+        Destroy(GetComponent<Rigidbody>());
+        while (tiempoDeBorrarActual < timeToDissapear)
+        {
+            tiempoDeBorrarActual += aumentoDeTiempo;
+            yield return new WaitForSeconds(aumentoDeTiempo);
+        }
+        Destroy(gameObject);
     }
 
 }

@@ -11,7 +11,6 @@ public class Slice : MonoBehaviour
     public float cutCooldown = .5f;
     public bool inCooldown;
     //Size of the edge
-    public Material tempMaterial;
     public bool canCut;
     public XRInteractionManager interactionManager;
     public float ingredientMinSize;
@@ -36,14 +35,15 @@ public class Slice : MonoBehaviour
             for (int i = 0; i < hits.Length; i++)
             {
                 GameObject originalObject = hits[i].gameObject;
-                SlicedHull hull = cutObject(originalObject, tempMaterial);
+                Material originalMaterial = originalObject.GetComponent<Renderer>().material;
+                SlicedHull hull = cutObject(originalObject, originalMaterial);
 
                 if (hull != null)
                 {
                     Ingredient originalIngredient = originalObject.GetComponent<Ingredient>();
                     Ingredient prefabIngredeient = originalIngredient.originPrefab.GetComponent<Ingredient>();
-                    GameObject upperObject = hull.CreateUpperHull(originalObject, tempMaterial);
-                    GameObject lowerObject = hull.CreateLowerHull(originalObject, tempMaterial);
+                    GameObject upperObject = hull.CreateUpperHull(originalObject, originalMaterial);
+                    GameObject lowerObject = hull.CreateLowerHull(originalObject, originalMaterial);
                     AddHullComponents(upperObject, prefabIngredeient);
                     AddHullComponents(lowerObject, prefabIngredeient);
                     upperObject.layer = 6;
@@ -72,7 +72,6 @@ public class Slice : MonoBehaviour
         }
         else
         {
-            print("Destroying small object");
             Destroy(hullObject, 1.5f);
         }
 

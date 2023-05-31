@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 /// <summary>
 /// Singleton que maneja receta actual en la escena. Es necesario agregar una receta para que funcione.
@@ -21,6 +22,9 @@ public class RecipeManager : MonoBehaviour
     public UnityEvent ingredientAddedEvent;
     public UnityEvent ingredientRemovedEvent;
     public ScreenState screenState;
+
+    public GameObject DONE;
+    public GameObject plate;
 
     public void AgregarIngrediente(Ingredient ingredient)
     {
@@ -48,6 +52,18 @@ public class RecipeManager : MonoBehaviour
         Terminada = false;
     }
 
+    public IEnumerator DoneReceta()
+    {
+        plate.SetActive(false);
+        SocketManager.Instance.ResetSockets();
+        IngredientesActuales.Reverse();
+        foreach (Ingredient ingredient in IngredientesActuales)
+        {
+            ingredient.RemoveIngredient();
+        }
+        yield return new WaitForSeconds(2);
+        plate.SetActive(true);
+    }
 
     private void Awake()
     {
@@ -62,4 +78,6 @@ public class RecipeManager : MonoBehaviour
             Debug.LogError("Error, there is more than one Instance of the RecipeManager. Should be a Singleton");
         }
     }
+
+
 }
