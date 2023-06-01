@@ -63,7 +63,7 @@ public class Ingredient : MonoBehaviour
         estadoActual = Estados.QUEMADO;
         renderer.material = materialesSegunEstado[estadoActual];
     }
-
+        
     // Start is called before the first frame update
     void Start()
     {

@@ -7,15 +7,16 @@ public class SocketGameObjectSender : MonoBehaviour
 {
 
     public XRSocketInteractor socket;
+    public bool locked = false;
 
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (socket.firstInteractableSelected != null)
+        if (socket.hasHover && !locked)
         {
-            socket.attachTransform.rotation = socket.firstInteractableSelected.transform.rotation;
+                gameObject.transform.rotation = socket.interactablesHovered[socket.interactablesHovered.Count-1].transform.rotation;
+                gameObject.transform.position = socket.interactablesHovered[socket.interactablesHovered.Count - 1].transform.position;
         }
-        
     }
 
     public void SendGameObject()
@@ -24,8 +25,10 @@ public class SocketGameObjectSender : MonoBehaviour
             Ingredient ingrediente;
             if(socket.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
             {
+            locked = true;
                 RecipeManager.Instance.AgregarIngrediente(ingrediente);
                 SocketManager.Instance.CreateSocketAndRemoveGrabbable(ingrediente);
+                socket.showInteractableHoverMeshes = false;
             }
             else
             {

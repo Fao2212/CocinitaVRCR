@@ -50,6 +50,7 @@ public class RecipeManager : MonoBehaviour
         screenState.SetGreenScreen();
         Fase = 0;
         Terminada = false;
+        DONE.SetActive(false);
     }
 
     public IEnumerator DoneReceta()
@@ -63,6 +64,7 @@ public class RecipeManager : MonoBehaviour
         }
         yield return new WaitForSeconds(2);
         plate.SetActive(true);
+        ResetReceta();
     }
 
     private void Awake()

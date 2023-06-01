@@ -407,8 +407,8 @@ IL2CPP_EXTERN_C String_t* _stringLiteral73B1EE122F9265DE593C900DF2C3B566F2132C34
 IL2CPP_EXTERN_C String_t* _stringLiteral78BD1603414425A1FC265805598C520C6195017C;
 IL2CPP_EXTERN_C String_t* _stringLiteral86B5D3C783A475B8A8E2FC2DE1F74CD23F1C4A09;
 IL2CPP_EXTERN_C String_t* _stringLiteral897E86C11DDE0AD347CC6A2BB926FD8785E176FB;
-IL2CPP_EXTERN_C String_t* _stringLiteral8E5062009FEA23C0C48581E52980C423958CCC2B;
 IL2CPP_EXTERN_C String_t* _stringLiteral945A2355BA12DA37C5AA54A33262568F2176521C;
+IL2CPP_EXTERN_C String_t* _stringLiteral9D5313975DA8153FF9A5262016CB413A4E84846E;
 IL2CPP_EXTERN_C String_t* _stringLiteral9EAF966E7F70362137034B52A41D6A16040DAB34;
 IL2CPP_EXTERN_C String_t* _stringLiteralA6030E2180386015B94EB31BC7F77A76D5E57274;
 IL2CPP_EXTERN_C String_t* _stringLiteralB7FAC05D6130AD66D564A8F28A7A973EC79719D9;
@@ -416,7 +416,6 @@ IL2CPP_EXTERN_C String_t* _stringLiteralD010338CCD8628FE140178C15DC0D75C1029C1AA
 IL2CPP_EXTERN_C String_t* _stringLiteralD03302A757DD1BC84E7F0D341F5E0505A90927F0;
 IL2CPP_EXTERN_C String_t* _stringLiteralD69052198E1CD46E01D782B9BAE0B1B4B6D52038;
 IL2CPP_EXTERN_C String_t* _stringLiteralDD198E12A9E91ECF9C7B73DEE686D98316D42A21;
-IL2CPP_EXTERN_C String_t* _stringLiteralE9160AA542E6D60C39131D03956B8834E110B7BD;
 IL2CPP_EXTERN_C String_t* _stringLiteralEC9649C3DD9B189B920BFC2F92D39BB3543B28DC;
 IL2CPP_EXTERN_C String_t* _stringLiteralF86A5028BF35B749ED51B2F49FB90E533C122E61;
 IL2CPP_EXTERN_C String_t* _stringLiteralF8AC0CB8C60F7CD2617BB73C7B37E4CE441EE2B2;
@@ -427,7 +426,6 @@ IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisReceta_t6558393C8
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_mC91ACC92AD57CA6CA00991DAF1DB3830BCE07AF8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRigidbody_t268697F5A994213ED97393309870968BC1C7393C_m4B5CAD64B52D153BEA96432633CA9A45FA523DD8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisXRGrabInteractable_t8F7EA04527E7074002690EA93ACEAEFEBD79A772_m45D42D0442D2EA51C90CBC916300D8E554443089_RuntimeMethod_var;
-IL2CPP_EXTERN_C const RuntimeMethod* Component_TryGetComponent_TisXRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591_m8A3197184088B6B96F5F145B1E5C1E633008CCEC_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2__ctor_m6104DF974E94F9BA1A887ADD43BAD0912CDD7181_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_get_Item_m56735089F62E596B61EE2E7190312BF7BC75027E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Enumerator_Dispose_m7A51532BE8A984D41AAE39B0F78A8A993B2EC227_RuntimeMethod_var;
@@ -1849,6 +1847,8 @@ struct Slice_t620AEBFD09CC9524664FB6C1E3189173B23FE9F8  : public MonoBehaviour_t
 // SocketGameObjectSender
 struct SocketGameObjectSender_t035B8639F6F540D80885A374813D5C87355B4DED  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// UnityEngine.XR.Interaction.Toolkit.XRSocketInteractor SocketGameObjectSender::socket
+	XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* ___socket_4;
 };
 
 // SocketManager
@@ -3171,8 +3171,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameObject_AddComponent_TisRun
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_1__ctor_mA763900B34C3394F230AE63708F530CA9A192B57_gshared (Action_1_tEB0353AA1A112B6F2D921B58DCC9D9D4C0498E6E* __this, RuntimeObject* ___0_object, intptr_t ___1_method, const RuntimeMethod* method) ;
 // T UnityEngine.Object::Instantiate<System.Object>(T,UnityEngine.Vector3,UnityEngine.Quaternion)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Object_Instantiate_TisRuntimeObject_m249A6BA4F2F19C2D3CE217D4D31847DF0EF03EFE_gshared (RuntimeObject* ___0_original, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_position, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___2_rotation, const RuntimeMethod* method) ;
-// System.Boolean UnityEngine.Component::TryGetComponent<System.Object>(T&)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Component_TryGetComponent_TisRuntimeObject_m69D4ED21F14D49D805A2337F4332934CDA07DEDB_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, RuntimeObject** ___0_component, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.GameObject::TryGetComponent<System.Object>(T&)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool GameObject_TryGetComponent_TisRuntimeObject_m4D430300D2DFB9276DE980D78F60A05D271D3630_gshared (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, RuntimeObject** ___0_component, const RuntimeMethod* method) ;
 // T UnityEngine.Object::Instantiate<System.Object>(T,UnityEngine.Vector3,UnityEngine.Quaternion,UnityEngine.Transform)
@@ -3514,13 +3512,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Int32_ToString_m030E01C24E294D6762F
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m9E3155FB84015C823606188F53B47CB44C444991 (String_t* ___0_str0, String_t* ___1_str1, const RuntimeMethod* method) ;
 // System.Void UnityEngine.MonoBehaviour::print(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour_print_m9E6FF71C673B651F35DD418C293CFC50C46803B6 (RuntimeObject* ___0_message, const RuntimeMethod* method) ;
-// System.Boolean UnityEngine.Component::TryGetComponent<UnityEngine.XR.Interaction.Toolkit.XRSocketInteractor>(T&)
-inline bool Component_TryGetComponent_TisXRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591_m8A3197184088B6B96F5F145B1E5C1E633008CCEC (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591** ___0_component, const RuntimeMethod* method)
-{
-	return ((  bool (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591**, const RuntimeMethod*))Component_TryGetComponent_TisRuntimeObject_m69D4ED21F14D49D805A2337F4332934CDA07DEDB_gshared)(__this, ___0_component, method);
-}
 // UnityEngine.XR.Interaction.Toolkit.IXRSelectInteractable UnityEngine.XR.Interaction.Toolkit.XRBaseInteractor::get_firstInteractableSelected()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* XRBaseInteractor_get_firstInteractableSelected_m26779B4796BA51429DE9B5F34EB69BB4C02C48AF_inline (XRBaseInteractor_tB48889E8D95695ABF46D2012EC55EA660103D158* __this, const RuntimeMethod* method) ;
+// UnityEngine.Transform UnityEngine.XR.Interaction.Toolkit.XRBaseInteractor::get_attachTransform()
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* XRBaseInteractor_get_attachTransform_m704C74165ED1463CF8B79670066472AE4BD33482_inline (XRBaseInteractor_tB48889E8D95695ABF46D2012EC55EA660103D158* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Transform::set_rotation(UnityEngine.Quaternion)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___0_value, const RuntimeMethod* method) ;
 // System.Boolean UnityEngine.GameObject::TryGetComponent<Ingredient>(T&)
 inline bool GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6** ___0_component, const RuntimeMethod* method)
 {
@@ -3595,6 +3592,8 @@ inline XRGrabInteractable_t8F7EA04527E7074002690EA93ACEAEFEBD79A772* GameObject_
 {
 	return ((  XRGrabInteractable_t8F7EA04527E7074002690EA93ACEAEFEBD79A772* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared)(__this, method);
 }
+// System.Int32 UnityEngine.LayerMask::NameToLayer(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t LayerMask_NameToLayer_m2764C530EDA9EC3226A36E3FD43E020B413AF139 (String_t* ___0_layerName, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ScriptableObject::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ScriptableObject__ctor_mD037FDB0B487295EA47F79A4DB1BF1846C9087FF (ScriptableObject_tB3BFDB921A1B1795B38A5417D3B97A89A140436A* __this, const RuntimeMethod* method) ;
 // UnityEngine.Color UnityEngine.Color::get_white()
@@ -6473,84 +6472,106 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BreadCutter__ctor_mA384EB1001EA30CBAEC1A
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Void SocketGameObjectSender::Update()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SocketGameObjectSender_Update_mDEC2295DAD3F130BFF79EA75B2587297D4ED2D3A (SocketGameObjectSender_t035B8639F6F540D80885A374813D5C87355B4DED* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IXRInteractable_t31CD4FF4D45899471D81D43D605D9C6118BF50CA_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// if (socket.firstInteractableSelected != null)
+		XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* L_0 = __this->___socket_4;
+		NullCheck(L_0);
+		RuntimeObject* L_1;
+		L_1 = XRBaseInteractor_get_firstInteractableSelected_m26779B4796BA51429DE9B5F34EB69BB4C02C48AF_inline(L_0, NULL);
+		if (!L_1)
+		{
+			goto IL_0032;
+		}
+	}
+	{
+		// socket.attachTransform.rotation = socket.firstInteractableSelected.transform.rotation;
+		XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* L_2 = __this->___socket_4;
+		NullCheck(L_2);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
+		L_3 = XRBaseInteractor_get_attachTransform_m704C74165ED1463CF8B79670066472AE4BD33482_inline(L_2, NULL);
+		XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* L_4 = __this->___socket_4;
+		NullCheck(L_4);
+		RuntimeObject* L_5;
+		L_5 = XRBaseInteractor_get_firstInteractableSelected_m26779B4796BA51429DE9B5F34EB69BB4C02C48AF_inline(L_4, NULL);
+		NullCheck(L_5);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6;
+		L_6 = InterfaceFuncInvoker0< Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* >::Invoke(6 /* UnityEngine.Transform UnityEngine.XR.Interaction.Toolkit.IXRInteractable::get_transform() */, IXRInteractable_t31CD4FF4D45899471D81D43D605D9C6118BF50CA_il2cpp_TypeInfo_var, L_5);
+		NullCheck(L_6);
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_7;
+		L_7 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_6, NULL);
+		NullCheck(L_3);
+		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_3, L_7, NULL);
+	}
+
+IL_0032:
+	{
+		// }
+		return;
+	}
+}
 // System.Void SocketGameObjectSender::SendGameObject()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SocketGameObjectSender_SendGameObject_m8150CEE2EE0997E056B91F699CD23A64D77E0E3E (SocketGameObjectSender_t035B8639F6F540D80885A374813D5C87355B4DED* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_TryGetComponent_TisXRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591_m8A3197184088B6B96F5F145B1E5C1E633008CCEC_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91_RuntimeMethod_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IXRInteractable_t31CD4FF4D45899471D81D43D605D9C6118BF50CA_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8E5062009FEA23C0C48581E52980C423958CCC2B);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE9160AA542E6D60C39131D03956B8834E110B7BD);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF8AC0CB8C60F7CD2617BB73C7B37E4CE441EE2B2);
 		s_Il2CppMethodInitialized = true;
 	}
-	XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* V_0 = NULL;
-	Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* V_1 = NULL;
+	Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* V_0 = NULL;
 	{
-		// Debug.Log("Sending");
-		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(_stringLiteralE9160AA542E6D60C39131D03956B8834E110B7BD, NULL);
-		// if (TryGetComponent<XRSocketInteractor>(out interactor))
-		bool L_0;
-		L_0 = Component_TryGetComponent_TisXRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591_m8A3197184088B6B96F5F145B1E5C1E633008CCEC(__this, (&V_0), Component_TryGetComponent_TisXRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591_m8A3197184088B6B96F5F145B1E5C1E633008CCEC_RuntimeMethod_var);
-		if (!L_0)
-		{
-			goto IL_004f;
-		}
-	}
-	{
-		// if(interactor.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
-		XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* L_1 = V_0;
+		// if(socket.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
+		XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* L_0 = __this->___socket_4;
+		NullCheck(L_0);
+		RuntimeObject* L_1;
+		L_1 = XRBaseInteractor_get_firstInteractableSelected_m26779B4796BA51429DE9B5F34EB69BB4C02C48AF_inline(L_0, NULL);
 		NullCheck(L_1);
-		RuntimeObject* L_2;
-		L_2 = XRBaseInteractor_get_firstInteractableSelected_m26779B4796BA51429DE9B5F34EB69BB4C02C48AF_inline(L_1, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2;
+		L_2 = InterfaceFuncInvoker0< Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* >::Invoke(6 /* UnityEngine.Transform UnityEngine.XR.Interaction.Toolkit.IXRInteractable::get_transform() */, IXRInteractable_t31CD4FF4D45899471D81D43D605D9C6118BF50CA_il2cpp_TypeInfo_var, L_1);
 		NullCheck(L_2);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
-		L_3 = InterfaceFuncInvoker0< Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* >::Invoke(6 /* UnityEngine.Transform UnityEngine.XR.Interaction.Toolkit.IXRInteractable::get_transform() */, IXRInteractable_t31CD4FF4D45899471D81D43D605D9C6118BF50CA_il2cpp_TypeInfo_var, L_2);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_3;
+		L_3 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_2, NULL);
 		NullCheck(L_3);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_4;
-		L_4 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_3, NULL);
-		NullCheck(L_4);
-		bool L_5;
-		L_5 = GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91(L_4, (&V_1), GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91_RuntimeMethod_var);
-		if (!L_5)
+		bool L_4;
+		L_4 = GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91(L_3, (&V_0), GameObject_TryGetComponent_TisIngredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6_m03209D91DB3F49E12E1FA836C8DBAAB58C7B9C91_RuntimeMethod_var);
+		if (!L_4)
 		{
-			goto IL_0044;
+			goto IL_0035;
 		}
 	}
 	{
 		// RecipeManager.Instance.AgregarIngrediente(ingrediente);
-		RecipeManager_t611BE082F92252A8ADCAE6CD9675735915028AC8* L_6;
-		L_6 = RecipeManager_get_Instance_m73BC4B5F14088095CF0515C2354BF60550202C91_inline(NULL);
-		Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* L_7 = V_1;
-		NullCheck(L_6);
-		RecipeManager_AgregarIngrediente_mB35175600D0A8D9375B4721CDD23B21B19FF5F79(L_6, L_7, NULL);
+		RecipeManager_t611BE082F92252A8ADCAE6CD9675735915028AC8* L_5;
+		L_5 = RecipeManager_get_Instance_m73BC4B5F14088095CF0515C2354BF60550202C91_inline(NULL);
+		Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* L_6 = V_0;
+		NullCheck(L_5);
+		RecipeManager_AgregarIngrediente_mB35175600D0A8D9375B4721CDD23B21B19FF5F79(L_5, L_6, NULL);
 		// SocketManager.Instance.CreateSocketAndRemoveGrabbable(ingrediente);
-		SocketManager_tFA162C4D30D5A71D0A5F10FDA0CF83B2B1101650* L_8;
-		L_8 = SocketManager_get_Instance_mFAF3D466262B9D9A471AB4FF8165EACB053F8CBC_inline(NULL);
-		Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* L_9 = V_1;
-		NullCheck(L_8);
-		SocketManager_CreateSocketAndRemoveGrabbable_mACFF3B67A72F8805BDC75AB87AFCAA1875FB5096(L_8, L_9, NULL);
+		SocketManager_tFA162C4D30D5A71D0A5F10FDA0CF83B2B1101650* L_7;
+		L_7 = SocketManager_get_Instance_mFAF3D466262B9D9A471AB4FF8165EACB053F8CBC_inline(NULL);
+		Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* L_8 = V_0;
+		NullCheck(L_7);
+		SocketManager_CreateSocketAndRemoveGrabbable_mACFF3B67A72F8805BDC75AB87AFCAA1875FB5096(L_7, L_8, NULL);
 		return;
 	}
 
-IL_0044:
+IL_0035:
 	{
 		// Debug.LogError("No es un ingrediente");
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2(_stringLiteralF8AC0CB8C60F7CD2617BB73C7B37E4CE441EE2B2, NULL);
-		return;
-	}
-
-IL_004f:
-	{
-		// Debug.LogError("No hay interactor");
-		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_LogError_mB00B2B4468EF3CAF041B038D840820FB84C924B2(_stringLiteral8E5062009FEA23C0C48581E52980C423958CCC2B, NULL);
 		// }
 		return;
 	}
@@ -6771,6 +6792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SocketManager_CreateSocketAndRemoveGrabb
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2173C88BC2FEE235035D51EF94DE498E1AC99C66);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral43A8181F63A44A31E1D96952C56B26491DA0D4B1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9D5313975DA8153FF9A5262016CB413A4E84846E);
 		s_Il2CppMethodInitialized = true;
 	}
 	XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* V_0 = NULL;
@@ -6993,6 +7015,15 @@ IL_011b:
 		L_78 = InteractionLayerMask_op_Implicit_m6FF8E1165F1A46181E485809C17FF45A3B0C00BA(L_77, NULL);
 		NullCheck(L_74);
 		XRBaseInteractable_set_interactionLayers_mC6A6EAEF851239E9090EBE58388B3BB263517830_inline(L_74, L_78, NULL);
+		// ingredient.gameObject.layer = LayerMask.NameToLayer("Default"); ;
+		Ingredient_t90138F3306F2C6E871393C2BBC8B3F2E0A0AC4E6* L_79 = ___0_ingredient;
+		NullCheck(L_79);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_80;
+		L_80 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(L_79, NULL);
+		int32_t L_81;
+		L_81 = LayerMask_NameToLayer_m2764C530EDA9EC3226A36E3FD43E020B413AF139(_stringLiteral9D5313975DA8153FF9A5262016CB413A4E84846E, NULL);
+		NullCheck(L_80);
+		GameObject_set_layer_m6E1AF478A2CC86BD222B96317BEB78B7D89B18D0(L_80, L_81, NULL);
 		// }
 		return;
 	}
@@ -15547,6 +15578,14 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* XRBaseInteractor_g
 	{
 		// public IXRSelectInteractable firstInteractableSelected { get; private set; }
 		RuntimeObject* L_0 = __this->___U3CfirstInteractableSelectedU3Ek__BackingField_23;
+		return L_0;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* XRBaseInteractor_get_attachTransform_m704C74165ED1463CF8B79670066472AE4BD33482_inline (XRBaseInteractor_tB48889E8D95695ABF46D2012EC55EA660103D158* __this, const RuntimeMethod* method) 
+{
+	{
+		// get => m_AttachTransform;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0 = __this->___m_AttachTransform_9;
 		return L_0;
 	}
 }

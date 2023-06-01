@@ -6535,6 +6535,8 @@ struct Slice_t620AEBFD09CC9524664FB6C1E3189173B23FE9F8  : public MonoBehaviour_t
 // SocketGameObjectSender
 struct SocketGameObjectSender_t035B8639F6F540D80885A374813D5C87355B4DED  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
+	// UnityEngine.XR.Interaction.Toolkit.XRSocketInteractor SocketGameObjectSender::socket
+	XRSocketInteractor_t955B5778E5057E61463018DC1817B84363C54591* ___socket_4;
 };
 
 // SocketManager
