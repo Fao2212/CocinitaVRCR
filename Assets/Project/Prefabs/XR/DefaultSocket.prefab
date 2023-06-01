@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33e69ddf063c79b408484e847e569d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  socket: {fileID: 3010893145036879399}

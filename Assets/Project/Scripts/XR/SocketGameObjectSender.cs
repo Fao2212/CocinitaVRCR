@@ -5,14 +5,24 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SocketGameObjectSender : MonoBehaviour
 {
+
+    public XRSocketInteractor socket;
+
+
+    private void Update()
+    {
+        if (socket.firstInteractableSelected != null)
+        {
+            socket.attachTransform.rotation = socket.firstInteractableSelected.transform.rotation;
+        }
+        
+    }
+
     public void SendGameObject()
     {
-        Debug.Log("Sending");
-        XRSocketInteractor interactor;
-        if (TryGetComponent<XRSocketInteractor>(out interactor))
-        {
+
             Ingredient ingrediente;
-            if(interactor.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
+            if(socket.firstInteractableSelected.transform.gameObject.TryGetComponent<Ingredient>(out ingrediente))
             {
                 RecipeManager.Instance.AgregarIngrediente(ingrediente);
                 SocketManager.Instance.CreateSocketAndRemoveGrabbable(ingrediente);
@@ -21,10 +31,7 @@ public class SocketGameObjectSender : MonoBehaviour
             {
                 Debug.LogError("No es un ingrediente");
             }
-        }
-        else
-        {
-            Debug.LogError("No hay interactor");
-        }
+
     }
+
 }

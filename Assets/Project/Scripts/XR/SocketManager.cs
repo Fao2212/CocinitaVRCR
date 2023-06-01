@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -62,5 +63,6 @@ public class SocketManager : MonoBehaviour
 
         //Remove hand interaction with ingredient
         ingredient.gameObject.GetComponent<XRGrabInteractable>().interactionLayers = InteractionLayerMask.GetMask("LockedIngredient");
+        ingredient.gameObject.layer = LayerMask.NameToLayer("Default"); ;
     }
 }
