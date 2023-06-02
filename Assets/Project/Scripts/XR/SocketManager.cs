@@ -10,6 +10,7 @@ public class SocketManager : MonoBehaviour
     public GameObject socketPrefab;
     public List<XRSocketInteractor> socketList;
     public XRSocketInteractor firstSocket;
+    public Vector3 firstSocketPos;
     public static SocketManager Instance { get; private set; }
 
     public void ResetSockets()
@@ -23,6 +24,7 @@ public class SocketManager : MonoBehaviour
         }
         socketList = new();
         socketList.Add(firstSocket);
+        firstSocket.transform.position = firstSocketPos;
     }    
 
     private void Awake()
@@ -30,6 +32,7 @@ public class SocketManager : MonoBehaviour
         if (!Instance)
         {
             Instance = this;
+            firstSocketPos = firstSocket.transform.position;
         }
         else
         {
@@ -61,7 +64,7 @@ public class SocketManager : MonoBehaviour
         ingredient.gameObject.GetComponent<XRGrabInteractable>().selectMode = InteractableSelectMode.Single;
         ingredient.gameObject.layer = LayerMask.NameToLayer("Default"); ;
 
-        GameObject newSocketObjeect = Instantiate(socketPrefab, new Vector3(lastSocket.transform.position.x, lastSocket.transform.position.y + ingredient.transform.lossyScale.y, lastSocket.transform.position.z), Quaternion.identity, transform);
+        GameObject newSocketObjeect = Instantiate(socketPrefab, new Vector3(RecipeManager.Instance.plate.transform.position.x, lastSocket.transform.position.y + ingredient.transform.lossyScale.y, RecipeManager.Instance.plate.transform.position.z), Quaternion.identity, transform);
         XRSocketInteractor socket = newSocketObjeect.GetComponent<XRSocketInteractor>();
         socketList.Add(socket);
 
