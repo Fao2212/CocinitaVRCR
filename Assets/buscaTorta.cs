@@ -22,13 +22,18 @@ public class buscaTorta : MonoBehaviour
             nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             // Call your fonction
             if (torta != null) torta.Cocinar();
-            else Debug.Log("No torta aun");
         }
     }
     private void OnTriggerEnter(Collider other)
     { 
         torta = other.GetComponent<Torta>();
         if (torta != null) Debug.Log("Recibio torta");
-        else Debug.Log("No recibio torta");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        torta = other.GetComponent<Torta>();
+        if (torta != null) torta = null;
+
     }
 }
