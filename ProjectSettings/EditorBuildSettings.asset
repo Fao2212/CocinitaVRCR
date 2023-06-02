@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DefaultXRScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
     path: Assets/Scenes/CorteDeIngredientes.unity
     guid: f426d331b18425e41b348b7d894e509c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SepararPanes.unity
     guid: 2b977167399af9d439b8ccf0bcff1628
   m_configObjects:
