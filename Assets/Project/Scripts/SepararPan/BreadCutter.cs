@@ -10,22 +10,24 @@ public class BreadCutter : MonoBehaviour
     public GameObject plane;
     public bool cutted;
     public int hands;
-    public GameObject LeftHand;
-    public GameObject RightHand;
+    private GameObject LeftHand;
+    private GameObject RightHand;
     public MeshRenderer planeRenderer;
     private Ingredient originalIngredient;
     public GameObject otherSide;
-    private XRDirectInteractor leftHandInteractor;
-    private XRDirectInteractor rightHandInteractor;
+    private XRRayInteractor leftHandInteractor;
+    private XRRayInteractor rightHandInteractor;
     public float maxDistanceToCut = 1.5f;
 
     private void Start()
     {
+        LeftHand = RecipeManager.Instance.LeftHand;
+        RightHand = RecipeManager.Instance.RightHand;
         planeRenderer = plane.GetComponent<MeshRenderer>();
         originalIngredient = GetComponent<Ingredient>().originPrefab.GetComponent<Ingredient>();
         originalIngredient = originalIngredient.originPrefab.GetComponent<Ingredient>();
-        leftHandInteractor = LeftHand.GetComponent<XRDirectInteractor>();
-        rightHandInteractor = RightHand.GetComponent<XRDirectInteractor>();
+        leftHandInteractor = LeftHand.GetComponent<XRRayInteractor>();
+        rightHandInteractor = RightHand.GetComponent<XRRayInteractor>();
     }
 
     private void Update()
