@@ -18,6 +18,8 @@ public class RecipeManager : MonoBehaviour
     public int Fase { get; set; }
     [SerializeField]
     public bool Terminada { get; set; }
+    public GameObject RightHand;
+    public GameObject LeftHand;
 
     public UnityEvent ingredientAddedEvent;
     public UnityEvent ingredientRemovedEvent;
@@ -32,6 +34,7 @@ public class RecipeManager : MonoBehaviour
         RecetaDeEscena.ValidarPaso();
         ingredientAddedEvent.Invoke();
     }
+
 
     public void RemoverIngrediente(Ingredient ingrediente)
     {
@@ -53,7 +56,12 @@ public class RecipeManager : MonoBehaviour
         DONE.SetActive(false);
     }
 
-    public IEnumerator DoneReceta()
+    public void DoneReceta()
+    {
+        StartCoroutine(DoneRecetaTask());
+    }
+
+    public IEnumerator DoneRecetaTask()
     {
         plate.SetActive(false);
         SocketManager.Instance.ResetSockets();
