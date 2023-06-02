@@ -81,7 +81,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7338245002143469133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -145,11 +145,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  cutCooldown: 1
+  cutCooldown: 0.09
   inCooldown: 0
-  tempMaterial: {fileID: 2100004, guid: bd232805ec57aa245a81c2df3f69f66a, type: 3}
   canCut: 0
-  m_Started: 0
+  interactionManager: {fileID: 0}
+  ingredientMinSize: 0.1
 --- !u!1 &7338245003061346757
 GameObject:
   m_ObjectHideFlags: 0
