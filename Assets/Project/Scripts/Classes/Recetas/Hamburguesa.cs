@@ -22,12 +22,10 @@ public class Hamburguesa : Receta
                     if (ingrediente.originPrefab.name == siguienteIngredienteValido.name)
                     {
                         RecipeManager.Instance.Fase++;
-                        Debug.Log("Se agrega el primer pan");
                     }
                     else
                     {
                         //No es el primer pan
-                        Debug.Log("No es el primer pan");
                         screenState.SetRedScreen();
                     }
                     break;
@@ -39,13 +37,11 @@ public class Hamburguesa : Receta
                         if (ingrediente.name == ingredientesReceta[1].name)
                         {
                             RecipeManager.Instance.Fase++;
-                            Debug.Log("Se agrega la torta");
                         }
                     }
                     else
                     {
                         //Se ponen 2 panes seguidos
-                        Debug.Log("Se ponen 2 panes seguidos");
                         screenState.SetRedScreen();
                     }
                     break;
@@ -56,15 +52,9 @@ public class Hamburguesa : Receta
                         RecipeManager.Instance.Fase++;
                         RecipeManager.Instance.Terminada = true;
                         RecipeManager.Instance.DONE.SetActive(true);
-                        Debug.Log("Termino la receta con el pan");
-                    }
-                    else
-                    {
-                        Debug.Log("Aun no pone el pan");
                     }
                     break;
                 default:
-                    Debug.Log("Ya la receta termino");
                     break;
             }
         }
