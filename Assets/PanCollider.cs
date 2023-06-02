@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class buscaTorta : MonoBehaviour
+public class PanCollider : MonoBehaviour
 {
     private int nextUpdate;
     private Torta torta;
-    // Start is called before the first frame update
+
     void Start()
     {
         nextUpdate = 1;
@@ -17,7 +17,7 @@ public class buscaTorta : MonoBehaviour
     {
         // If the next update is reached
         if (Time.time >= nextUpdate)
-        {
+        { 
             // Change the next update (current second+1)
             nextUpdate = Mathf.FloorToInt(Time.time) + 1;
             // Call your fonction
@@ -25,8 +25,10 @@ public class buscaTorta : MonoBehaviour
             else Debug.Log("No torta aun");
         }
     }
-    private void OnTriggerEnter(Collider other)
-    { 
+
+    private void onTriggerEnter(Collider other)
+    {
+        Debug.Log("Debug");
         torta = other.GetComponent<Torta>();
         if (torta != null) Debug.Log("Recibio torta");
         else Debug.Log("No recibio torta");

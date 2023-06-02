@@ -97,9 +97,6 @@ public class BreadCutter : MonoBehaviour
         XRGrabInteractable interactable = hullObject.AddComponent<XRGrabInteractable>();
         interactable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
         Ingredient ingredient = hullObject.AddComponent<Ingredient>();
-        ingredient.tiempoDeCoccion = originalIngredient.tiempoDeCoccion;
-        ingredient.tiempoDeCoccionActual = originalIngredient.tiempoDeCoccionActual;
-        ingredient.tiempoDeQuemado = originalIngredient.tiempoDeQuemado;
         ingredient.opcional = originalIngredient.opcional;
         ingredient.originPrefab = originalIngredient.originPrefab;
     }
