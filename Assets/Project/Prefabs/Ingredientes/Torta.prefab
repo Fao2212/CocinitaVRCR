@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6200042353568646439}
   - component: {fileID: 1775769995981181521}
   - component: {fileID: 1775769995981181526}
+  - component: {fileID: 1875969442}
   m_Layer: 6
   m_Name: Torta
   m_TagString: Ingrediente
@@ -112,10 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af1795a4c82e8b547b4f70169341f4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materiales: []
-  tiempoDeCoccion: 30
-  tiempoDeCoccionActual: 0
-  tiempoDeQuemado: 60
   opcional: 0
   originPrefab: {fileID: 6200042353568646424, guid: dfe86c4342b763642b3abe9d2fd48ae6,
     type: 3}
@@ -272,3 +269,20 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1875969442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200042353568646424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23cd46eaf1c404f48b05c48b065e1db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materiales:
+  - {fileID: 2100000, guid: 7676609c7c7e89c4aa96977db4f4070c, type: 2}
+  - {fileID: 2100000, guid: 8d986397cce329d4fbb46e93aa2aec8d, type: 2}
+  - {fileID: 2100000, guid: 28f92ecbe99e6ae40afb5cdf3de9416c, type: 2}
+  - {fileID: 2100000, guid: 1ba42c13f3643fb4382f8d15b9b64564, type: 2}

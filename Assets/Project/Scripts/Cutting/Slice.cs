@@ -64,9 +64,6 @@ public class Slice : MonoBehaviour
             XRGrabInteractable grabInteractable = hullObject.AddComponent<XRGrabInteractable>();
             grabInteractable.interactionLayers = InteractionLayerMask.GetMask("Ingredients");
             Ingredient ingredient = hullObject.AddComponent<Ingredient>();
-            ingredient.tiempoDeCoccion = prefabIngredeient.tiempoDeCoccion;
-            ingredient.tiempoDeCoccionActual = prefabIngredeient.tiempoDeCoccionActual;
-            ingredient.tiempoDeQuemado = prefabIngredeient.tiempoDeQuemado;
             ingredient.opcional = prefabIngredeient.opcional;
             ingredient.originPrefab = prefabIngredeient.originPrefab;
         }
